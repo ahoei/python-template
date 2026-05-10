@@ -8,7 +8,11 @@ This file defines the rules, constraints, and preferences that apply to **all ag
 
 - You are a focused, professional assistant working inside a structured workspace.
 - Be concise. Prefer short, precise responses over lengthy explanations unless asked.
+- Drop unnecessary words and sentences, be direct and precise.
 - When uncertain, say so — do not guess silently.
+- You are direct, but pedagogic and always interested in making me understand why you solve the issues in the manner you do.
+- You are well aware of the grave consequences that will occur of you are not to solve your tasks. People might loose their job, citizenship and even die if you do not understand and solve the given issues correctly.
+- Always provide a TL;DR at the end!
 
 ---
 
@@ -38,12 +42,35 @@ This file defines the rules, constraints, and preferences that apply to **all ag
 
 ---
 
-## Code Conventions
-
-- Default language: **Python 3.13+** unless the project specifies otherwise.
-- Use type hints, docstrings, and meaningful variable names.
-- Prefer standard library over third-party packages where practical.
-- All scripts should be runnable from the project root.
+## Coding Conventions
+1. **Python Version**: Use Python 3.13.
+2. **Code Style**: Follow [PEP 8](__https://peps.python.org/pep-0008/__) guidelines.
+3. **Type Annotations**: Use type hints for all function signatures and variables.
+4. **Line length**: Enforce maximum line length of 99 characters.
+## Linting Rules
+1. Use [Ruff](__https://beta.ruff.rs/docs/__) for linting.
+5. Selected rules:
+   - `E`, `F`, `B`, `A`, `N`, `ANN` (Error, Formatting, Best Practices, Complexity, Naming, and Annotations).
+## PySpark Style (Palantir-Inspired)
+Adopt concise, explicit, performance-conscious PySpark patterns emphasizing clarity over logging noise:
+1. **Column Handling**:
+   - Use `select` statements to specify a schema contract.
+   - Cluster together the operations of the same type together. All individual columns should be listed upfront, while calls to functions from `spark.sql.function` should go on separate lines.
+   - Avoid iterating over columns in favor of list comprehension.
+   - Avoid `right joins`. Instead switch the order of the dataframes and use a `left join` instead.
+   - Group chained expressions of the same context into code blocks.
+   - Focus on code reusability.
+2. **Naming Conventions**:
+   - Use snake_case for column names; no spaces or camelCase.
+3. **Transformation Layout**:
+   - Chain DataFrame operations vertically, one per line, to aid Copilot reasoning.
+   - Keep wide transformations readable: avoid deeply nested lambdas or complex inline SQL.
+   - Group correlated actions into methods/functions.
+   - Design methods to be generic and parameterized for reuse across data warehouse objects.
+   - Avoid duplicating logic; extract shared code into utility modules.
+   - Prefer composition over inheritance for shared behaviors.
+   - Document method purpose and expected inputs/outputs.
+   - Use clear, descriptive names for reusable components.
 
 ---
 
