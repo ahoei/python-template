@@ -22,7 +22,6 @@
       "extensions": [
         "charliermarsh.ruff",
         "ms-python.python",
-        "ms-python.vscode-pylance",
         "tamasfe.even-better-toml",
         "njpwerner.autodocstring",
         "ms-toolsai.jupyter",
