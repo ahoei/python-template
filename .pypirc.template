@@ -1,0 +1,8 @@
+[distutils]
+index-servers =
+    private
+
+[private]
+repository = <your-registry-url>
+username = __token__
+password = <your-token>
