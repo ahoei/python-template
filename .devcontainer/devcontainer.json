@@ -27,14 +27,16 @@
         "ms-toolsai.jupyter",
         "redhat.vscode-yaml",
         "ryanluker.vscode-coverage-gutters",
-        "eamodio.gitlens",
         "timonwong.shellcheck",
         "foxundermoon.shell-format",
-        "hashicorp.terraform"
+        "DavidWang.ini-for-vscode"
       ],
       "settings": {
         "python.defaultInterpreterPath": "/workspace/.venv/bin/python",
-        "python.terminal.activateEnvironment": true
+        "python.terminal.activateEnvironment": true,
+        "files.associations": {
+          ".pypirc*": "ini"
+        }
       }
     }
   },

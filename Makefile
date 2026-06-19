@@ -19,6 +19,12 @@ sync: ## Sync dependencies (frozen for CI)
 	uv sync --all-extras --frozen
 
 
+.PHONY: install
+install: ## Install dependencies and pre-commit hooks
+	sync
+	$(PYTHON) pre-commit install
+
+
 .PHONY: build
 build: ## Build the package
 	uv build
@@ -27,12 +33,6 @@ build: ## Build the package
 .PHONY: pre-commit
 pre-commit: ## Run pre-commit hooks on all files
 	$(PYTHON) pre-commit run --all-files
-
-
-.PHONY: install
-install: ## Install dependencies and pre-commit hooks
-	sync
-	$(PYTHON) pre-commit install
 
 
 .PHONY: clean
