@@ -47,17 +47,7 @@ pre-commit: ## Run pre-commit hooks on all files
 build: ## Build the package
 	uv build
 
-.PHONY: release
-release: ## Push a release tag to trigger the CI release pipeline (VERSION=x.y.z required)
-	@test -n "$(VERSION)" || (echo "ERROR: VERSION required — make release VERSION=1.2.0" && exit 1)
-	git tag v$(VERSION) && git push origin v$(VERSION)
-
 .PHONY: clean
 clean: ## Remove build artifacts and caches
 	rm -rf dist/ .coverage coverage.xml htmlcov/ .pytest_cache/ .ruff_cache/
 	find . -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null || true
-
-# ── Obsidian ───────────────────────────────────────────────────────────────
-.PHONY: obsidian-index
-obsidian-index: ## Regenerate docs/obsidian/meta/workspace-index.md
-	$(PYTHON) docs/obsidian/obsidian-index.py docs/obsidian
