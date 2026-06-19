@@ -13,10 +13,38 @@ help: ## Show this help message
 	    | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-18s\033[0m %s\n", $$1, $$2}'
 
 # ── Python / Package ───────────────────────────────────────────────────────
+
+.PHONY: sync
+sync: ## Sync dependencies (frozen for CI)
+	uv sync --all-extras --frozen
+
+
+.PHONY: build
+build: ## Build the package
+	uv build
+
+
+.PHONY: pre-commit
+pre-commit: ## Run pre-commit hooks on all files
+	$(PYTHON) pre-commit run --all-files
+
+
 .PHONY: install
 install: ## Install dependencies and pre-commit hooks
-	uv sync --all-extras
-	uv run pre-commit install
+	sync
+	$(PYTHON) pre-commit install
+
+
+.PHONY: clean
+clean: ## Remove build artifacts and caches
+	rm -rf dist/ .coverage coverage.xml htmlcov/ .pytest_cache/ .ruff_cache/
+	find . -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null || true
+
+
+.PHONY: publish
+publish: clean build ## Build and publish to configured index
+	$(PYTHON) twine upload --repository $(PUBLISH_REPO) dist/*
+
 
 .PHONY: lint
 lint: ## Check lint + formatting (no writes)
@@ -38,16 +66,3 @@ test-ci: ## Run tests in CI mode (XML coverage)
 
 .PHONY: check
 check: lint test-ci ## Lint + format-check + tests (pre-push gate)
-
-.PHONY: pre-commit
-pre-commit: ## Run pre-commit hooks on all files
-	$(PYTHON) pre-commit run --all-files
-
-.PHONY: build
-build: ## Build the package
-	uv build
-
-.PHONY: clean
-clean: ## Remove build artifacts and caches
-	rm -rf dist/ .coverage coverage.xml htmlcov/ .pytest_cache/ .ruff_cache/
-	find . -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null || true

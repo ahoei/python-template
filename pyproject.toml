@@ -4,7 +4,7 @@ version = "1.1.0"
 description = "Boilerplate project for Python Programing"
 readme = "README.md"
 authors = [
-    "Andreas Sandvik Hoeimyr <ahoei01@proton.me>",
+    {name = "Andreas Sandvik Hoeimyr", email = "ahoei01@proton.me"}
 ]
 requires-python = ">=3.13"
 dependencies = [
@@ -19,6 +19,7 @@ dev = [
     "pytest>=9.0.3",
     "pytest-cov>=7.1.0",
     "ruff>=0.15.11",
+    "twine>=6.2.0",
 ]
 
 [tool.ruff]
