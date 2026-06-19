@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y \
     libssl3 \
     procps \
     make \
+    shellcheck \
     && rm -rf /var/lib/apt/lists/*
 
 # Create a non-root user to mirror the vscode user convention
