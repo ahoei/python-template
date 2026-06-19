@@ -23,7 +23,12 @@
       "extensions": [
         "charliermarsh.ruff",
         "ms-python.python",
-        "tamasfe.even-better-toml"
+        "tamasfe.even-better-toml",
+        "njpwerner.autodocstring",
+        "ms-toolsai.jupyter",
+        "yzhang.markdown-all-in-one",
+        "redhat.vscode-yaml",
+        "ryanluker.vscode-coverage-gutters"
       ],
       "settings": {
         "python.defaultInterpreterPath": "/workspace/.venv/bin/python",
