@@ -1,13 +1,25 @@
-FROM mcr.microsoft.com/devcontainers/python:3.13
+FROM debian:bookworm-slim
 
-# Install uv as the vscode user
-USER vscode
-RUN curl -LsSf https://astral.sh/uv/install.sh | sh
-ENV PATH="/home/vscode/.local/bin:${PATH}"
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    curl \
+    git \
+    bash \
+    ca-certificates \
+    libstdc++6 \
+    libssl3 \
+    procps \
+    make \
+    && rm -rf /var/lib/apt/lists/*
+
+# Create a non-root user to mirror the vscode user convention
+RUN groupadd --gid 1000 vscode && \
+    useradd --uid 1000 --gid 1000 --shell /bin/bash --create-home vscode
+
+# Install uv system-wide
+RUN curl -LsSf https://astral.sh/uv/install.sh | UV_INSTALL_DIR=/usr/local/bin sh
+
 ENV UV_LINK_MODE=copy
+ENV PATH="/home/vscode/.local/bin:${PATH}"
 
 WORKDIR /workspace
-
-# Pre-create the venv so VS Code resolves the interpreter on container start
-COPY --chown=vscode:vscode pyproject.toml uv.lock ./
-RUN uv sync --all-extras --frozen

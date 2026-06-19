@@ -14,7 +14,8 @@
     "--userns=keep-id"
   ],
   "containerEnv": {
-    "UV_LINK_MODE": "copy"
+    "UV_LINK_MODE": "copy",
+    "HOME": "/home/vscode"
   },
   "features": {},
   "customizations": {
@@ -31,10 +32,10 @@
         "ryanluker.vscode-coverage-gutters"
       ],
       "settings": {
-        "python.defaultInterpreterPath": ".venv/bin/python",
+        "python.defaultInterpreterPath": "/workspace/.venv/bin/python",
         "python.terminal.activateEnvironment": true
       }
     }
   },
-  "postCreateCommand": "bash .devcontainer/initialize.sh && uv run pre-commit install"
+  "postCreateCommand": "uv python install && uv sync --all-extras --frozen && bash .devcontainer/initialize.sh && uv run pre-commit install"
 }
