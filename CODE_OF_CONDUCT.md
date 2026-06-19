@@ -1,21 +1,43 @@
 # Code of Conduct
 
-## Our Standards
+## Our Commitment
 
-- Be respectful and constructive in all interactions
-- Accept feedback gracefully and give it kindly
-- Focus on what is best for the project
+We are committed to fostering an open, collaborative, and respectful environment for everyone participating in this project.
 
-## Unacceptable Behaviour
+Participants are expected to:
 
-- Harassment, discrimination, or personal attacks of any kind
-- Sharing others' private information without consent
+* Be respectful and professional.
+* Assume positive intent.
+* Provide constructive feedback.
+* Welcome differing viewpoints and experiences.
+* Focus discussions on technical and project-related topics.
+
+## Unacceptable Behavior
+
+Examples of unacceptable behavior include:
+
+* Harassment or discrimination of any kind.
+* Personal attacks or insulting language.
+* Intimidation or threats.
+* Deliberate disruption of discussions or collaboration.
+* Publishing private information without consent.
 
 ## Enforcement
 
-Violations can be reported to [your-email@example.com].
-Maintainers reserve the right to remove contributions or restrict access.
+Project maintainers are responsible for clarifying and enforcing these standards.
+
+Instances of unacceptable behavior may result in corrective action, including removal from project participation where appropriate.
 
 ## Scope
 
-Applies to all project spaces — code, issues, pull requests, and any other communication related to this project.
+This Code of Conduct applies to:
+
+* Repository discussions
+* Pull requests
+* Issues
+* Code reviews
+* Other project-related communications
+
+## Reporting
+
+Concerns regarding behavior should be reported to the project maintainers through appropriate internal organizational channels.

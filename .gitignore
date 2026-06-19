@@ -16,3 +16,6 @@ coverage.xml
 .coverage
 .obsidian
 *.ipynb
+
+# Publishing credentials
+.pypirc

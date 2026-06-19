@@ -1,11 +1,18 @@
 # Changelog
 
-All notable changes to this project will be documented here.
-Format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
-Versioning follows [Semantic Versioning](https://semver.org/).
+All notable changes to this project will be documented in this file.
+
+The format is based on Keep a Changelog and this project aims to follow Semantic Versioning where applicable.
 
 ## [Unreleased]
 
-## [0.1.0] - 2026-04-23
 ### Added
-- Initial release
+
+* Initial Python package template.
+* uv-based dependency management.
+* Podman development container.
+* Environment initialization script.
+* Makefile-based developer workflow.
+* pytest testing framework integration.
+* pre-commit quality assurance workflow.
+* Repository documentation and governance files.
