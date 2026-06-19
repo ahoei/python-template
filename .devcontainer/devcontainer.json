@@ -24,11 +24,13 @@
         "charliermarsh.ruff",
         "ms-python.python",
         "tamasfe.even-better-toml",
-        "njpwerner.autodocstring",
         "ms-toolsai.jupyter",
-        "yzhang.markdown-all-in-one",
         "redhat.vscode-yaml",
-        "ryanluker.vscode-coverage-gutters"
+        "ryanluker.vscode-coverage-gutters",
+        "eamodio.gitlens",
+        "timonwong.shellcheck",
+        "foxundermoon.shell-format",
+        "hashicorp.terraform"
       ],
       "settings": {
         "python.defaultInterpreterPath": "/workspace/.venv/bin/python",
