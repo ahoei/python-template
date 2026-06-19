@@ -1,1 +1,0 @@
-"""Import table schema definitions."""
