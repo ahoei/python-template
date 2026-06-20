@@ -19,3 +19,14 @@ coverage.xml
 
 # Publishing credentials
 .pypirc
+
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+
+# Linux
+*~
