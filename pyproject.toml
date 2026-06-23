@@ -1,5 +1,5 @@
 [project]
-name = "mimesbrunnr"
+name = "python_template"
 version = "1.1.0"
 description = "Boilerplate project for Python Programing"
 readme = "README.md"
@@ -33,7 +33,7 @@ ignore = ["E501"]
 fixable = ["ALL"]
 
 [tool.ruff.lint.isort]
-known-first-party = ["mimesbrunnr"]
+known-first-party = ["python_template"]
 
 [tool.ruff.format]
 quote-style = "double"
@@ -43,11 +43,11 @@ skip-magic-trailing-comma = false
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-addopts = "--cov=src/mimesbrunnr --cov-report=term-missing"
+addopts = "--cov=src/pythton_template --cov-report=term-missing"
 pythonpath = ["src"]
 
 [tool.coverage.run]
-source = ["src/mimesbrunnr"]
+source = ["src/python_template"]
 omit = ["tests/*"]
 
 [tool.bumpversion]
