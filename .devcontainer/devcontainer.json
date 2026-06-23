@@ -7,7 +7,7 @@
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
   "workspaceFolder": "/workspace",
   "mounts": [
-    "source=python_template-data,target=/data,type=volume"
+    "source=flowlets-data,target=/data,type=volume"
   ],
   "remoteUser": "vscode",
   "runArgs": [
@@ -15,6 +15,8 @@
   ],
   "containerEnv": {
     "UV_LINK_MODE": "copy",
+    "UV_CACHE_DIR": "/workspace/.cache/uv",
+    "UV_PROJECT_ENVIRONMENT": "/workspace/.venv",
     "HOME": "/home/vscode"
   },
   "features": {},
@@ -40,5 +42,5 @@
       }
     }
   },
-  "postCreateCommand": "uv python install && uv sync --all-extras --frozen && bash .devcontainer/initialize.sh && uv run pre-commit install"
+  "postCreateCommand": "bash .devcontainer/initialize.sh"
 }

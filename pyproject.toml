@@ -7,10 +7,12 @@ authors = [
     {name = "Andreas Sandvik Hoeimyr", email = "ahoei01@proton.me"}
 ]
 requires-python = ">=3.13"
-dependencies = [
-    "enums>=0.0.2",
-    "typing>=3.10.0.0",
-]
+dependencies = []
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 
 [dependency-groups]
 dev = [
